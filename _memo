@@ -1,0 +1,6 @@
+# merge point
+'''bash
+rosbag play --loop ~/Lidar_Messdaten/rosbags_17082021/raw_1024x20_mode\=none/2021-08-17-14-47-08.bag 
+
+roslaunch morpheus_merge morpheus_merge.launch fov:=180 phase_lock_mode:=0 replay:=true metadata_sensor_1:=$HOME/Lidar_Messdaten/rosbags_17082021/raw_1024x20_mode\=none/metadata_sensor_1 metadata_sensor_2:=$HOME/Lidar_Messdaten/rosbags_17082021/raw_1024x20_mode\=none/metadata_sensor_2 metadata_sensor_3:=$HOME/Lidar_Messdaten/rosbags_17082021/raw_1024x20_mode\=none/metadata_sensor_3 rviz:=false
+'''bash
