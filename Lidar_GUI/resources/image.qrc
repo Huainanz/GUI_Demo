@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/pic">
+        <file>image/fzd_logo.png</file>
+    </qresource>
+</RCC>
