@@ -16,15 +16,15 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>50</y>
-     <width>491</width>
-     <height>471</height>
+     <x>10</x>
+     <y>10</y>
+     <width>511</width>
+     <height>411</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="rviz_layout"/>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="rosbag_PB">
    <property name="geometry">
     <rect>
      <x>780</x>
@@ -34,10 +34,64 @@
     </rect>
    </property>
    <property name="text">
-    <string>ok</string>
+    <string>rosbag</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mergepoint_PB">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>250</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>merge point</string>
+   </property>
+  </widget>
+  <widget class="Lampe" name="lampe_widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>470</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="launchstatus_label">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>490</y>
+     <width>101</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>launch status</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>10</y>
+     <width>256</width>
+     <height>192</height>
+    </rect>
    </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Lampe</class>
+   <extends>QWidget</extends>
+   <header>lampe.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

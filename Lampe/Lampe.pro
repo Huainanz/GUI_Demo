@@ -10,31 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    rviz_widget.cpp \
     lampe.cpp
 
 HEADERS += \
-    rviz_widget.h \
     lampe.h
 
 FORMS += \
-    rviz_widget.ui \
     lampe.ui
-
-TRANSLATIONS += \
-    rviz_test_en_DE.ts
-CONFIG += lrelease
-CONFIG += embed_translations
-
-INCLUDEPATH +=/opt/ros/noetic/include
-
-DEPENDPATH +=/opt/ros/noetic/include
-
-LIBS += -L/opt/ros/noetic/lib -lroscpp -lrospack -lpthread -lrosconsole -lrosconsole_log4cxx -lrosconsole_backend_interface -lxmlrpcpp -lroscpp_serialization \
-        -lrostime -lcpp_common -lroslib -ltf -lyaml-cpp -lkdl_conversions -lrviz
-
-QMAKE_LFLAGS += -no-pie
-
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
