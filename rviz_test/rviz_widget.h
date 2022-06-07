@@ -27,6 +27,11 @@ public:
     RvizWidget(QWidget *parent = nullptr);
     ~RvizWidget();
 
+private slots:
+    void on_rosbag_PB_clicked();
+
+    void on_mergepoint_PB_clicked();
+
 private:
     Ui::RvizWidget *ui;
 };

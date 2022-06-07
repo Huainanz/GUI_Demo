@@ -1,6 +1,9 @@
 #include "rviz_widget.h"
 #include "ui_rviz_widget.h"
 
+#include <stdio.h>
+#include <string.h>
+
 RvizWidget::RvizWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::RvizWidget)
@@ -57,5 +60,50 @@ RvizWidget::RvizWidget(QWidget *parent)
 RvizWidget::~RvizWidget()
 {
     delete ui;
+}
+
+
+void RvizWidget::on_rosbag_PB_clicked()
+{
+    // rosbag play
+    std::string cmd_rosbag = "rosbag play --loop ~/Lidar_Messdaten/rosbags_28102021/raw_1024x20_mode=sync/2021-10-28-16-00-56.bag";
+    FILE *fp;
+    //char _info[200];
+    const char *cmd_rb = cmd_rosbag.data();
+    if ((fp=popen(cmd_rb,"w"))==NULL){
+      ui->textBrowser->append("can not play rosbag!!!");
+    }else {
+      //fgets(_info,sizeof(_info),fp);
+      ui->textBrowser->append("success play rosbag");//line break
+      //ui->textBrowser->insertPlainText(_info);// not line break
+      ui->textBrowser->insertPlainText("...");
+    }
+    //pclose(fp);
+    //int ret = system(cmd_rosbag.c_str()); //blockt!
+}
+
+
+void RvizWidget::on_mergepoint_PB_clicked()
+{
+    // launch file
+    std::string cmd_roslaunch = "roslaunch morpheus_merge morpheus_merge.launch\
+                                 fov:=180 phase_lock_mode:=0 replay:=true\
+                                 metadata_sensor_1:=$HOME/Lidar_Messdaten/rosbags_28102021/raw_1024x20_mode=sync/metadata_sensor_1\
+                                 metadata_sensor_2:=$HOME/Lidar_Messdaten/rosbags_28102021/raw_1024x20_mode=sync/metadata_sensor_2\
+                                 metadata_sensor_3:=$HOME/Lidar_Messdaten/rosbags_28102021/raw_1024x20_mode=sync/metadata_sensor_3\
+                                 rviz:=false";
+    FILE *fp;
+    //char _info[20];
+    const char *cmd_rl = cmd_roslaunch.data();
+    if ((fp=popen(cmd_rl,"w"))==NULL){
+      ui->textBrowser->append("can not launch file!!!");
+    }else {
+      //fgets(_info,sizeof(_info),fp);
+      ui->textBrowser->append("success launch file");//line break
+      //ui->textBrowser->insertPlainText(_info);// not line break
+      ui->textBrowser->insertPlainText("...");
+    }
+    //pclose(fp);
+    //int ret = system(cmd_roslaunch.c_str());//blockt
 }
 
